@@ -9,7 +9,7 @@
    FETCH NEXT satir_yuzdesi PERCENT ROWS ONLY;
    
    
-   OFFSET Cümleci?i ile de listenecek olan satirlardan sirasiyla istedigimiz 
+   OFFSET Cümlecigi ile de listenecek olan satirlardan sirasiyla istedigimiz 
    kadarini atlayabiliriz.  
    
    Syntax
