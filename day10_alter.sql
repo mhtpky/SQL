@@ -8,7 +8,7 @@
   
     DDL komutudur
 ==============================================================================*/
-drop table personel;
+
 CREATE TABLE personel 
     (
         id NUMBER(9), 
@@ -78,3 +78,4 @@ CREATE TABLE personel
     MODIFY maas CHECK (maas >= 3500); -- Maasi alt limit kisitlamasi ekledik(3500'den az olmasin)
     
     INSERT INTO isciler VALUES(123452310, 'Hatice Sahin', 'Bursa', 3000,'Honda','Almanya','Kadin');
+    -- Maasi 3500 den kucuk girdigimz icin hata veriyor.

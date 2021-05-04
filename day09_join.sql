@@ -61,18 +61,18 @@
 ==============================================================================*/   
    
 /* -----------------------------------------------------------------------------
-  ORNEK1: sirketler ve siparisler ad?ndaki tablolarda yer alan sirket_isim, 
+  ORNEK1: sirketler ve siparisler adindaki tablolarda yer alan sirket_isim, 
   siparis_id ve siparis_tarihleri listeleyen bir sorgu yaziniz.
 ------------------------------------------------------------------------------*/ 
-    SELECT s.sirket_isim, sp.siparis_id, sp.siparis_tarihi, sp.siparis_id
+    SELECT s.sirket_isim, sp.siparis_id, sp.siparis_tarihi
     FROM sirketler s
     FULL JOIN siparisler sp
     ON s.sirket_id= sp.sirket_id;
     
     -- FULL Join’de iki tabloda var olan tum satirlar gosterilir.
-    -- Bir olupda digerlerine olmayan alanlar bo birakildi.
-    -- Join isleminde genelde iki tablodaki ortak olarak bulunan sutun, ON
-    -- cumleciginde kosul yapisi kullanilir.
+    -- Bir olupda digerlerine olmayan alanlar bos birakildi.
+    -- Join isleminde genelde iki tablodaki ortak olarak bulunan sutun,
+    -- ON cumleciginde kosul yapisi olarak kullanilir.
     
 /*=============================== INNER JOIN  ==================================
    
@@ -96,8 +96,9 @@
     ON  s.sirket_id = sp.sirket_id;
     
     -- INNER JOIN ile sadece iki tablodaki ortak olan satirlar secilir
-    -- Diger ifadeyle iki tablodaki ortak olan sirket_id degerleri icin ilgili
-    -- sutunlar listelenir
+    -- Diger ifadeyle iki tablodaki ortak olan sirket_id degerleri icin 
+    -- ilgili sutunlar listelenir
+    -- INNER kelimesi opsiyoneldir sadece JOIN yazilsa da ayni islemi yapar
     
 /*=============================== LEFT JOIN  ==================================
    
@@ -113,19 +114,20 @@
     ON tablo1.sutun = tablo2.sutun;
 ==============================================================================*/
 
-/* -----------------------------------------------------------------------------
+/* --------------------------------------------------------------------------
   ORNEK3: sirketler tablosundaki tum sirketleri ve bu sirketlere ait olan
   siparis_id ve siparis_tarihleri listeleyen bir sorgu yaziniz.
-------------------------------------------------------------------------------*/
-    SELECT sirket.sirket_isim, siparis.siparis_id, siparis.siparis_tarihi
-    FROM sirketler sirket
-    LEFT JOIN siparisler siparis
-    ON sirket.sirket_id = siparis.sirket_id;
+----------------------------------------------------------------------------*/
+    SELECT sr.sirket_isim, sp.siparis_id, sp.siparis_tarihi,sr.sirket_id
+    FROM sirketler sr
+    LEFT JOIN siparisler sp
+    ON sr.sirket_id = sp.sirket_id;
     
 /*=============================== RIGHT JOIN  ==================================
    
-    RIGHT JOIN, 2. tablodan (sag tablo) SELECT ile ifade edilen sutunlara ait tum
-    satirlari getirir.
+    RIGHT JOIN, 2. tablodan (sag tablo) SELECT ile ifade edilen sutunlara ait 
+    tum satirlari getirir.
+    
     Ancak, diger tablodan sadece ON ile belirtilen kosula uyan satirlari getirir.
        
     Syntax
@@ -137,7 +139,7 @@
 ==============================================================================*/
 /* -----------------------------------------------------------------------------
   ORNEK4: siparisler tablosundaki tum siparis_id ve siparis_tarihleri ile
-  bunlara kar??l?k gelen sirket_isimlerini listeleyen bir sorgu yaziniz.
+  bunlara karsilik gelen sirket_isimlerini listeleyen bir sorgu yaziniz.
 ------------------------------------------------------------------------------*/
     SELECT s.sirket_isim, sp.siparis_id, sp.siparis_tarihi,sp.sirket_id
     FROM sirketler s
